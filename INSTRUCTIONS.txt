@@ -1,0 +1,17 @@
+1.
+#</IfModule>
+
+RemoveHandler .html .htm
+AddType application/x-httpd-php .html .htm .php
+
+IncludeOptional "c:/wamp/vhosts/*"
+Include "c:/wamp/alias/*"
+
+this shud be last part of apache
+httpd.conf
+
+2.
+in apache bin and php bin
+in that php.ini
+uncomment this line(remove semicolon)
+extension=php_openssl.dll

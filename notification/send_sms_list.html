@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<title>Send Message</title>
+<?php 
+session_start();
+if (isset($_SESSION["key"]))
+{
+	if($_SESSION["key"]==false)
+	{
+		header('Refresh: 0;notlog.html');
+	}
+	else
+	{
+		$_SESSION["key"]=true;
+	}
+}
+else
+{
+	header('Refresh: 0;notlog.html');
+}
+?>
+<body background="rvce.jpg">
+<h2>Select Recipients</h2>
+<form name="myform" method="post" action="send_sms_ppl.php">
+Staff  &emsp;<input type="checkbox" name="staff" value="staff"><br><br>
+Student <input type="checkbox" name="student" value="student"><br><br>
+Parent  &nbsp;<input type="checkbox" name="parent" value="parent"><br><br>
+<input type="Submit">
+<br><br>
+<a href="/notification/main_notification.html">Main Page</a>
+</form>
+</html>
+</body>

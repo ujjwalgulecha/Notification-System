@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<title>Notification</title>
+<?php 
+session_start();
+if (isset($_SESSION["key"]))
+{
+	if($_SESSION["key"]==false)
+	{
+		header('Refresh: 0;notlog.html');
+	}
+	else
+	{
+		$_SESSION["key"]=true;
+	}
+}
+else
+{
+	header('Refresh: 0;notlog.html');
+}
+?>
+<body background="rvce.jpg">
+<h1>Notification</h1>
+Send Mail  &emsp; &emsp; &emsp; &nbsp;<a href="/notification/send_mail.html"> Click Here</a><br><br>
+Send SMS  &emsp; &emsp; &emsp;<a href="/notification/send_sms_list.html"> Click Here</a><br><br>
+Change Password  &nbsp;&nbsp;&nbsp;<a href="/notification/change_password.html"> Click Here</a><br><br>
+Log Out  &emsp; &emsp;&emsp;&emsp;<a href="/notification/logout.php"> Click Here</a><br><br>
+</body>
+</html>
+

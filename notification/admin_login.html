@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<script>
+$('body').html2canvas();
+var queue = html2canvas.Parse();
+var canvas = html2canvas.Renderer(queue,{elements:{length:1}});
+var img = canvas.toDataURL();
+window.open(img);
+</script>
+<title>Admin Login</title>
+<body background="rvce.jpg">
+<h1>Admin Login</h1>
+<script>
+function MyFunction()
+{
+	var x=document.forms["myForm"]["uname"].value;
+	if (x==null || x=="")
+	{
+		alert("Username cannot be left blank");
+		return false;
+	}
+	var x=document.forms["myForm"]["pwd"].value;
+	if (x==null || x=="")
+	{
+		alert("Password cannot be left blank");
+		return false;
+	}
+}  
+</script>
+<form name="myForm" method="post" action="admin_login_confirm.php" onsubmit="return MyFunction()";>
+Username:<input type="text" name="uname"><br><br>
+Password:<input type="password" name="pwd"><br><br>
+<input type="Submit">
+</form>
+</body>
+</html>

@@ -1,0 +1,81 @@
+create table admin
+(
+	uname varchar(30) primary key,
+	password varchar(30) not null
+);
+
+insert into admin values("admin","admin");
+
+create table department
+(
+	name varchar(50) not null,
+	id char(2) primary key,
+);
+
+insert into department values("Civil Engineering", "CV");
+insert into department values("Information Science and Engineering", "IS");
+insert into department values("Chemical Engineering", "CH");
+insert into department values("Architecture", "AT");
+insert into department values("Mechanical Engineering", "ME");
+insert into department values("Biotechnology", "BT");
+insert into department values("Computer Science and Engineering", "CS");
+insert into department values("Electronics and Communication Engineering", "EC");
+insert into department values("Electrical and Electronics Engineering", "EE");
+insert into department values("Industrial Engineering and Management", "IM");
+insert into department values("Instrumentation Technology", "IT");
+insert into department values("Telecommunication Engineering", "TE");
+
+create table faculty
+(
+	name varchar(50) not null,
+	email varchar(50),
+	phno varchar(10),
+	id varchar(10) primary key,
+	dept_id char(2) 
+);
+
+alter table faculty add constraint foreign key(dept_id) references department(id);
+
+insert into faculty values("Smitha G.R","smithagr@rvce.edu.in","9480091361","100000000","IS");
+insert into faculty values("Mahesh G.V","maheshgv@rvce.edu.in","9480091366","100000001","CS");
+insert into faculty values("Rahul Vaidya","rahulvaidya@rvce.edu.in","9480091365","100000002","CV");
+insert into faculty values("Kavitha S.N","kavithasn@rvce.edu.in","9480091364","100000003","CH");
+insert into faculty values("Nagraj Cholli","nagrajch@rvce.edu.in","9480091363","100000004","AT");
+insert into faculty values("Mukesh R.V","mukeshrv@rvce.edu.in","9480091362","100000005","ME");
+
+create table student
+(
+	name varchar(50) not null,
+	usn varchar(10) primary key,
+	email varchar(50),
+	phno varchar(10),
+	gender varchar(6),
+	dept_id char(2)
+);
+
+insert into student values("Charushree M.B","1RV11IS017","charujainmb@gmail.com","9008239720","female","IS");
+insert into student values("Ujjwal Gulecha","1RV11IS056","ujjwal.gulecha@gmail.com","9845658450","male","IS");
+insert into student values("Srihari Veeraraghavan","1RV11IS053","hari93@gmail.com","9611965665","male","IS");
+insert into student values("Anmol Baharani","1RV11IS010","anmolbaharani@yahoo.com","9663450431","male","IS");
+
+create table parent
+(
+	name varchar(50) not null,
+	usn varchar(10) primary key,
+	email varchar(50),
+	phno varchar(10),
+);
+
+alter table parent add constraint foreign key(usn) references student(usn);
+
+insert into parent values("Charushree M.B","1RV11IS017","bahubali@gmail.com","9008239721");
+insert into parent values("Ujjwal Gulecha","1RV11IS056","hcgulecha@yahoo.com","9844044636");
+insert into parent values("Srihari Veeraraghavan","1RV11IS053","hari93father@gmail.com","9611965666");
+insert into parent values("Anmol Baharani","1RV11IS010","anmolbaharanifather@yahoo.com","9663450432");
+
+
+
+
+
+
+
